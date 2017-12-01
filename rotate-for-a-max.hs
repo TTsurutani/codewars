@@ -16,5 +16,4 @@ rotate 0 xs = xs
 rotate n xs = as ++ bs ++ [b]
    where (as, b : bs) = splitAt (n - 1) xs
           
-
 -- https://www.codewars.com/kata/rotate-for-a-max/train/haskell
