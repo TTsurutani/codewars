@@ -39,3 +39,25 @@ evaporator _ evap_per_day threshold = length $ unfoldr f 100
   where f x
           | x < threshold = Nothing
           | otherwise = Just (x , x - x*evap_per_day*0.01)
+
+{--
+          split :: Char -> String -> [String]
+split x ys = split' x [] ys
+
+split' :: Char -> [Char] -> [Char]
+split' x z (y:ys)
+  | x == y    = [z,ys]
+  | otherwise = [z ++ y, split' x ys]
+  --}
+
+test :: Double -> Double
+test x = floor (x * realToFrac 100.0)
+{-- 
+twoDecimalPlaces :: Double -> Double
+twoDecimalPlaces x
+    | j < '5'   = floor x' / 100 :: Doubel
+    | otherwise = ceiling x' / 100 ::Double
+       where
+         x' = realToFrac x * 100
+         j  = last $ show x'  
+--}         
