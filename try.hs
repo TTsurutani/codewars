@@ -18,3 +18,12 @@ filter' :: Integral a => [a] -> [a] -> [a]
 filter' [] ls = ls
 filter' (x:xs) ls = filter' xs $ filter (\y -> y `mod` x /= 0) ls
 
+makeValley :: [Int] -> [Int]
+makeValley arr = reverse rlist ++ [bottom] ++ llist
+    where
+      llist = if head lista > head listb then listb else lista
+      rlist = if head listb > head lista then lista else listb
+      lista = [v| (i,v)<-tail list, even i]
+      listb = [v| (i,v)<-tail list, odd i]
+      (_,bottom) = head list   
+      list = zip [1..] $ sort arr
